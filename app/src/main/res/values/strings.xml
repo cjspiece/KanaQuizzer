@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Kana Quizzer</string>
+    <string name="welcome">"Welcome!\n To begin, please select an activity from below"</string>
+    <string name="begin">始める!</string>
+    <string name="statistics">Statistics</string>
+    <string name="wordQuiz">Vocabulary Quiz</string>
+    <string name="kataQuiz">Katakana Quiz</string>
+    <string name="hiraQuiz">Hiragana Quiz</string>
+    <string name="scoreLabel">Score:</string>
+    <string name="submit">Submit</string>
+    <string name="defaultScore">0</string>
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
+    <string name="save_score_quit"><![CDATA[Save Score & Quit]]></string>
+    <string name="your_score_history">Your Score History</string>
+    <string name="id_name_score">"  ID             Name                Score"</string>
+    <string-array name="titles">
+        <item>Home</item>
+        <item>Hiragana Quiz</item>
+        <item>Katakana Quiz</item>
+        <item>Hiragana Chart</item>
+        <item>Katakana Chart</item>
+        <item>Statistics</item>
+    </string-array>
+</resources>
