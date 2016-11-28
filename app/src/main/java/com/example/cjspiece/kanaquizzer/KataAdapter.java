@@ -50,6 +50,7 @@ public class KataAdapter extends BaseAdapter {
             "mya", "myo", "myu", "rya", "ryo", "ryu"
     };
 
+    // Constructor that accepts a context
     public KataAdapter(Context c) {
         mContext = c;
     }
@@ -66,6 +67,7 @@ public class KataAdapter extends BaseAdapter {
         return 0;
     }
 
+    // Creates a new TextView for each value in the array and places them into a GridView grid slot
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView myText;
         if (convertView == null) {

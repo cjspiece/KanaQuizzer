@@ -18,6 +18,7 @@ public class HiraganaLib {
     private String currentAnswer;
     private Random rand = new Random();
 
+    // Default class constructor that populate the arrays with values
     HiraganaLib() {
         alphabet = new String[]{
                 "あ", "い", "え", "お", "う", "か", "き", "け", "こ", "く", "が", "ぎ", "げ", "ご", "ぐ",
@@ -61,10 +62,18 @@ public class HiraganaLib {
         return Objects.equals(input, currentAnswer);
     }
 
+    /**Checks the user input against the correct answer, if it is correct returns true, otherwise false
+     * @param input for user input
+     * @return boolean value
+     */
     public String getCurrentAnswer() {
         return currentAnswer;
     }
 
+    /**Getter for returning the answer for a specific index
+     * @param  n
+     * @return String value for the romanized version of the kana
+     */
     public String getAnswerAt(int n) {
         return romanization[n];
     }

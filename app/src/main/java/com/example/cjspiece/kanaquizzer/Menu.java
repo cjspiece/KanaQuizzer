@@ -1,12 +1,12 @@
 package com.example.cjspiece.kanaquizzer;
 
 // This class is used to establish the menu items for the recycler
-
 public class Menu {
     private String name;
     private int imageResourceId;
     private String click;
 
+    // Associates the Menu items with their drawable material
     public static final Menu[] menus = {new Menu("Hiragana Quiz", R.drawable.hiragana),
             new Menu("Katakana Quiz", R.drawable.katakana),
             new Menu("Hiragana List", R.drawable.hirachart),

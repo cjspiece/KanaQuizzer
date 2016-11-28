@@ -15,6 +15,7 @@ public class DbAdapter extends BaseAdapter {
     private List<Score> listScores;
     private int length;
 
+    // Parameterized constructor for the adapter
     public DbAdapter(Context c) {
         mContext = c;
         db = new KanaQuizzerDatabaseHelper(mContext);
@@ -22,10 +23,12 @@ public class DbAdapter extends BaseAdapter {
         length = listScores.size();
     }
 
+    // Getter method that returns the length of the list from the database
     public int getCount() {
         return length;
     }
 
+    // getter method that returns the Objects position: 0,1,2...etc
     public Object getItem(int position) {
         return null;
     }
@@ -34,6 +37,7 @@ public class DbAdapter extends BaseAdapter {
         return 0;
     }
 
+    // Creates a new TextField for each entry in the list
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView myText;
         if (convertView == null) {

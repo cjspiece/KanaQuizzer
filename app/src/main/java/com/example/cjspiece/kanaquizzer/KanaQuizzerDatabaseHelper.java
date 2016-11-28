@@ -13,6 +13,11 @@ import java.util.List;
 public class KanaQuizzerDatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "kanaquizzer";
     private static final int DB_VERSION = 1;
+    private static final String TABLE_SCORES = "SCORE";
+    private static final String KEY_ID = "_id";
+    private static final String KEY_NAME = "name";
+    private static final String KEY_SCORE = "score";
+    private static final String[] COLUMNS = {KEY_ID, KEY_NAME, KEY_SCORE};
 
     public KanaQuizzerDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -20,6 +25,7 @@ public class KanaQuizzerDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // Create the Score table in the databse if it doesn't already exist
         db.execSQL("CREATE TABLE SCORE (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
         + "NAME TEXT, "
         + "SCORE INTEGER);");
@@ -30,6 +36,7 @@ public class KanaQuizzerDatabaseHelper extends SQLiteOpenHelper {
         // Implementation will be added when the prospect of upgrading occurs
     }
 
+    // Insert a new score into the database
     private static void insertScore(SQLiteDatabase db, String name, int score) {
         ContentValues scoreValues = new ContentValues();
         scoreValues.put("NAME", name);
@@ -37,18 +44,7 @@ public class KanaQuizzerDatabaseHelper extends SQLiteOpenHelper {
         db.insert("SCORE", null, scoreValues);
     }
 
-
-
-    // Score update section
-    private static final String TABLE_SCORES = "SCORE";
-
-    private static final String KEY_ID = "_id";
-    private static final String KEY_NAME = "name";
-    private static final String KEY_SCORE = "score";
-
-    private static final String[] COLUMNS = {KEY_ID, KEY_NAME, KEY_SCORE};
-
-    //CRUD operations
+    //CRUD operations for the database
     public void addScore(Score score) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -59,15 +55,16 @@ public class KanaQuizzerDatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    // Retrieves a list of scores and orders them in descending order
     public List<Score> getAllScores() {
         List<Score> scores = new LinkedList<Score>();
-        String query = "SELECT * FROM " + TABLE_SCORES;
+        String query = "SELECT * FROM " + TABLE_SCORES + " ORDER BY SCORE DESC";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Score score = null;
 
         if (cursor.moveToFirst()) {
-            do {
+            do {    // Loop as long as there are entries in the database
                 score = new Score();
                 score.setID(Integer.parseInt(cursor.getString(0)));
                 score.setName(cursor.getString(1));
@@ -79,7 +76,8 @@ public class KanaQuizzerDatabaseHelper extends SQLiteOpenHelper {
         return scores;
     }
 
-    public int updateBook(Score score) {
+    // Update a score entry
+    public int updateScore(Score score) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", score.getName());
@@ -93,8 +91,8 @@ public class KanaQuizzerDatabaseHelper extends SQLiteOpenHelper {
         return i;
     }
 
-    // Deleting single book
-    public void deleteBook(Score score) {
+    // Deleting a single score entry
+    public void deleteScore(Score score) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_SCORES,

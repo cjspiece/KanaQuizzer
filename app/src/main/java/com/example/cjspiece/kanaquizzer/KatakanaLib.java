@@ -1,6 +1,6 @@
 package com.example.cjspiece.kanaquizzer;
 
-// This class is used to generate a list of katakana and return a random one to the requesting
+// This class is used to generate an array of katakana and return a random one to the requesting
 // activity
 
 import android.os.Build;
@@ -18,6 +18,7 @@ public class KatakanaLib {
     private int currentIndex;
     private Random rand = new Random();
 
+    // default class constructor that populate the arrays with values
     KatakanaLib() {
         alphabet = new String[]{
                 "ア", "イ", "エ", "オ", "ウ",
@@ -80,10 +81,17 @@ public class KatakanaLib {
         return Objects.equals(input, currentAnswer);
     }
 
+    /** Getter method for retrieving the current answer
+     * @return String value for the answer
+     */
     public String getCurrentAnswer() {
         return currentAnswer;
     }
 
+    /**Getter for returning the answer for a specific index
+     * @param  n
+     * @return String value for the romanized version of the kana
+     */
     public String getAnswerAt(int n) {
         return romanization[n];
     }
