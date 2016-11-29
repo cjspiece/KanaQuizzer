@@ -15,10 +15,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private int[] imageIds;
     private Listener listener;
 
+    // An interface for a listener that will be implemented a bit further on in the class
     public interface Listener {
         void onClick(int position);
     }
 
+    // Constructor for the Adapter class which takes two arguments: an array of Strings and imageIds
     public MyAdapter(String[] captions, int[] imageIds) {
         this.captions = captions;
         this.imageIds = imageIds;
