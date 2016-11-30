@@ -11,7 +11,6 @@ import java.util.Objects;
 import java.util.Random;
 
 public class HiraganaLib {
-
     private String[] alphabet;
     private String[] romanization;
     private String currentKana;
@@ -42,7 +41,6 @@ public class HiraganaLib {
                 "mya", "myo", "myu", "rya", "ryo", "ryu"
         };
     }
-
     /** Psuedorandomly  selects a new kana to quiz the user against
      * @return currentKana String value
      */
@@ -54,7 +52,7 @@ public class HiraganaLib {
     }
 
     /**Checks the user input against the correct answer, if it is correct returns true, otherwise false
-      * @param input for user input
+     * @param input for user input
      * @return boolean value
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -63,7 +61,6 @@ public class HiraganaLib {
     }
 
     /**Checks the user input against the correct answer, if it is correct returns true, otherwise false
-     * @param input for user input
      * @return boolean value
      */
     public String getCurrentAnswer() {

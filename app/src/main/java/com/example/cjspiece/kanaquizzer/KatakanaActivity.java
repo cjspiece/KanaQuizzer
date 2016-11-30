@@ -36,10 +36,8 @@ public class KatakanaActivity extends AppCompatActivity {
 
     public void onSaveAndQuit(View view) {
         KanaQuizzerDatabaseHelper db = new KanaQuizzerDatabaseHelper(this);
-        Score myScore = new Score("Chris", score);
+        Score myScore = new Score("User", score);
         db.addScore(myScore);
-
-        List<Score> test = db.getAllScores();
 
         // Return to the main menu after submitting the score
         Intent intent = new Intent(this, MainActivity.class);
@@ -182,16 +180,6 @@ public class KatakanaActivity extends AppCompatActivity {
         Toast toast;
         // Test the user input against the correct answer
         boolean isCorrect = kataLib.checkInput(userInput.getText().toString());
-
-        /* DEBUGGING -------------------------------------------------------->
-
-        Toast toast = Toast.makeText(context, userInput.getText().toString(),duration);
-        toast.show();
-
-        toast = Toast.makeText(context, hiraLib.getCurrentAnswer(),duration);
-        toast.show();
-
-        // END OF DEBUGGING -------------------------------------------------> */
 
         if(isCorrect) {
             // increment score by 10 points

@@ -17,7 +17,6 @@ public class KanaQuizzerDatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_ID = "_id";
     private static final String KEY_NAME = "name";
     private static final String KEY_SCORE = "score";
-    private static final String[] COLUMNS = {KEY_ID, KEY_NAME, KEY_SCORE};
 
     public KanaQuizzerDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -34,14 +33,6 @@ public class KanaQuizzerDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Implementation will be added when the prospect of upgrading occurs
-    }
-
-    // Insert a new score into the database
-    private static void insertScore(SQLiteDatabase db, String name, int score) {
-        ContentValues scoreValues = new ContentValues();
-        scoreValues.put("NAME", name);
-        scoreValues.put("SCORE", score);
-        db.insert("SCORE", null, scoreValues);
     }
 
     //CRUD operations for the database

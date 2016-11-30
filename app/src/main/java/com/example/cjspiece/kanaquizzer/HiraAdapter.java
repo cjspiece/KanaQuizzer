@@ -21,17 +21,6 @@ public class HiraAdapter extends BaseAdapter {
                 "みゃ", "みょ", "みゅ", "りゃ", "りょ", "りゅ"
     };
 
-    private String[] romanization = new String[] {
-        "a", "i", "e", "o", "u", "ka", "ki", "ke", "ko", "ku", "ga", "gi", "ge", "go", "gu",
-                "sa","shi", "se", "so", "su", "za", "ji", "ze", "zo", "zu", "ta", "chi", "te", "to", "tsu",
-                "da", "ji", "de", "do", "zu", "na", "ni", "ne", "no", "nu", "ha", "hi", "he", "ho", "fu",
-                "ba", "bi", "be", "bo", "bu", "pa", "pi", "pe", "po", "pu", "ma", "mi", "me", "mo", "mu",
-                "ya", "yo", "yu", "ra", "ri", "re", "ro", "ru", "wa", "wo", "n", "kya", "kyo", "kyu",
-                "gya", "gyo", "gyu", "sha", "sho", "shu", "ja", "jo", "ju", "cha", "cho", "chu",
-                "nya", "nyo", "nyu", "hya", "hyo", "hyu", "bya", "byo", "byu", "pya", "pyo", "pyu",
-                "mya", "myo", "myu", "rya", "ryo", "ryu"
-    };
-
     // Constructor that accepts a context
     public HiraAdapter(Context c) {
         mContext = c;

@@ -28,9 +28,6 @@ public class HiraganaActivity extends AppCompatActivity {
     private EditText userInput;
     private TextView scoreBox;
     private TextView kanaImg;
-    private RecyclerView myRecyclerView;
-    private MyAdapter myAdapter;
-    private RecyclerView.LayoutManager myLayoutManager;
     private String[] titles;
     private ListView drawerList;
     private DrawerLayout myDrawerLayout;
@@ -39,10 +36,8 @@ public class HiraganaActivity extends AppCompatActivity {
 
     public void onSaveAndQuit(View view) {
         KanaQuizzerDatabaseHelper db = new KanaQuizzerDatabaseHelper(this);
-        Score myScore = new Score("Chris", score);
+        Score myScore = new Score("User", score);
         db.addScore(myScore);
-
-        List<Score> test = db.getAllScores();
 
         // Return to the main menu after submitting the score
         Intent intent = new Intent(this, MainActivity.class);
@@ -185,16 +180,6 @@ public class HiraganaActivity extends AppCompatActivity {
         int duration = Toast.LENGTH_SHORT;
         Toast toast;
         boolean isCorrect = hiraLib.checkInput(userInput.getText().toString()); // Check the answer
-
-        /* DEBUGGING -------------------------------------------------------->
-
-        Toast toast = Toast.makeText(context, userInput.getText().toString(),duration);
-        toast.show();
-
-        toast = Toast.makeText(context, hiraLib.getCurrentAnswer(),duration);
-        toast.show();
-
-        // END OF DEBUGGING -------------------------------------------------> */
 
         if(isCorrect) {
             // increment score by 10 points, and update score textview
